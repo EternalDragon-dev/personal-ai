@@ -1,0 +1,63 @@
+# Personal AI Configuration
+
+# Model settings
+model:
+  name: "personal-ai-v1"
+  architecture: "transformer"
+  max_length: 2048
+  temperature: 0.7
+  top_p: 0.9
+  device: "auto"  # auto, cpu, cuda
+  
+# Training settings
+training:
+  batch_size: 4
+  learning_rate: 5e-5
+  num_epochs: 3
+  warmup_steps: 500
+  gradient_checkpointing: true
+  mixed_precision: true
+  
+# Data settings
+data:
+  max_samples: 10000
+  validation_split: 0.1
+  preprocessing:
+    lowercase: false
+    remove_special_chars: false
+    max_token_length: 512
+    
+# Inference settings
+inference:
+  batch_size: 1
+  beam_size: 1
+  max_new_tokens: 256
+  do_sample: true
+  early_stopping: true
+  
+# Storage and paths
+paths:
+  data_dir: "./data"
+  model_dir: "./models"
+  logs_dir: "./logs"
+  cache_dir: "./cache"
+  
+# API settings
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["http://localhost:3000"]
+  
+# Logging
+logging:
+  level: "INFO"
+  format: "{time} | {level} | {name}:{function}:{line} - {message}"
+  file_rotation: "1 day"
+  file_retention: "30 days"
+  
+# Privacy and security
+privacy:
+  local_processing: true
+  data_encryption: false
+  anonymize_logs: true
+  retention_days: 90
