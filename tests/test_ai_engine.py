@@ -69,7 +69,7 @@ class TestAIEngine:
             # Test greeting response
             response = ai_engine.generate_response("hello")
             assert "Hello" in response
-            assert "personal AI assistant" in response.lower()
+            assert "personal ai assistant" in response.lower()
             
             # Test capabilities question
             response = ai_engine.generate_response("what can you do?")

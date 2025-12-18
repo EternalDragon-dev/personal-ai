@@ -6,11 +6,11 @@ help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-15s %s\n", $$1, $$2}'
 
 install: ## Install dependencies
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
 
 dev-install: ## Install development dependencies
-	pip install -r requirements.txt
-	pip install pytest pytest-cov black flake8 mypy isort pre-commit
+	pip3 install -r requirements.txt
+	pip3 install pytest pytest-cov black flake8 mypy isort pre-commit
 	pre-commit install
 
 test: ## Run tests
@@ -39,13 +39,13 @@ clean: ## Clean up generated files
 	rm -rf *.egg-info
 
 run: ## Run the AI in interactive mode
-	python src/main.py --mode interactive
+	python3 src/main.py --mode interactive
 
 run-api: ## Run the API server
-	python src/main.py --mode api
+	python3 src/main.py --mode api
 
 run-verbose: ## Run with verbose logging
-	python src/main.py --mode interactive --verbose
+	python3 src/main.py --mode interactive --verbose
 
 docs: ## Generate documentation (placeholder)
 	@echo "Documentation generation not yet implemented"
